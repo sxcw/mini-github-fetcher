@@ -21,6 +21,7 @@ app.post('/repos/import', function (req, res) {
   //console.log('res~~~~~~~~~~',res)
   req.body.forEach(function(repo){
   	knex('repos').insert({
+  		id: repo.id,
   		name: repo.name,
   		username: repo.username,
   		stargazers: repo.stargazers

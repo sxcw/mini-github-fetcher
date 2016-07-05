@@ -49,9 +49,12 @@ $( document ).ready(function() {
      }
 
      function passDataToExpress(userData){
-     	//console.log('in A~~~~~~~userData', userData)
+     	console.log('in A~~~~~~~userData', userData)
      	userData = userData.map(function(item){
+     		console.log(item.id);
      		return {
+
+     			id: item.id,
      			name: item.name,
      			username: item.owner.login,
      			stargazers: item.stargazers_count
