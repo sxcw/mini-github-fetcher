@@ -17,11 +17,31 @@ var knex = require('knex')({
 
 app.post('/repos/import', function (req, res) {
   // TODO
+  console.log('req.body~~~~~~~~~~' , req.body)
+  //console.log('res~~~~~~~~~~',res)
+  req.body.forEach(function(repo){
+  	knex('repos').insert({
+  		name: repo.name,
+  		username: repo.username,
+  		stargazers: repo.stargazers
+  	})
+  	.then(console.log('added to database!'))
+  })
+
 });
 
 
 app.get('/repos', function (req, res) {
   // TODO
+  // $.ajax({
+  //     url: "https://api.github.com/repos/VonC/gitolite/git/refs/tags",
+  //     dataType: "json",
+  //     success: function (returndata)
+  //     {
+  //         $("#result").html(returndata[0]["object"]["sha"]);
+  //         alert('Load was performed.');
+  //     }  
+  // });
 });
 
 
