@@ -1,99 +1,101 @@
 <html>
+
 <head>
-  <title>GitHub Fetcher</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <title>GitHub Fetcher</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-<link href='https://fonts.googleapis.com/css?family=Lato:300|Raleway:600' rel='stylesheet' type='text/css'>
-<style media="screen" type="text/css">
-	body, h1 span {
-		font-family: 'Lato', sans-serif;
-		color: #666;
-	}
-
-	h1,h2,h3, .highlight{
-		font-family: 'Raleway', sans-serif;
-	}
-	h1 {
-		color: #000;
-		font-size: 40px;
-		margin: 60px 0 0 0;
-	}
-
-	.circle {
-		width: 10px;
-		height: 10px;
-		background: #ccc;
-		border-radius: 5px;
-		display: inline-block;
-		margin-right: 7px;
-		margin-bottom: 50px;
-	}
-	.circle:nth-of-type(1){
-		margin-left: 145px;
-	}
-
-	form {
-	  width: 100%;
-	  color: #555;
-	  border: 1px solid #ccc;
-	  border-radius: 4px;
-	  padding: 20px;
-	}
-
-	.btn-default:hover, a:hover {
-		color: #DC2227;
-		text-decoration: none;
-	}
-	.container {
-		margin-top: 20px;
-	}
-
-</style>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300|Raleway:600' rel='stylesheet' type='text/css'>
+    <style media="screen" type="text/css">
+        body,
+        h1 span {
+            font-family: 'Lato', sans-serif;
+            color: #666;
+        }
+        h1,
+        h2,
+        h3,
+        .highlight {
+            font-family: 'Raleway', sans-serif;
+        }
+        h1 {
+            color: #000;
+            font-size: 40px;
+            margin: 60px 0 0 0;
+        }
+        .circle {
+            width: 10px;
+            height: 10px;
+            background: #ccc;
+            border-radius: 5px;
+            display: inline-block;
+            margin-right: 7px;
+            margin-bottom: 50px;
+        }
+        .circle:nth-of-type(1) {
+            margin-left: 145px;
+        }
+        form {
+            width: 100%;
+            color: #555;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 20px;
+        }
+        .btn-default:hover,
+        a:hover {
+            color: #DC2227;
+            text-decoration: none;
+        }
+        .container {
+            margin-top: 20px;
+        }
+    </style>
 
 
 </head>
+
 <body>
 
-<div class='container'>
-	<div class='rows'> 
-		<div class='col-md-6'>
-			<h1>GitHub <span>Fetcher<span></h1>
-			<div class="circle"></div> 
-			<div class="circle"></div> 
-			<div class="circle"></div>
-			<div class="circle"></div> 
-			<div class="circle"></div>
-		</div>
-		<div class='col-md-6'>
-			<form class="repo-fetcher form-group content-main">
-				
-			  <h4>Enter a GitHub username to fetch</h4>
-			  <input type="text" name="username" class="form-control md-col-6"/>
+    <div class='container'>
+        <div class='rows'>
+            <div class='col-md-6'>
+                <h1>GitHub <span>Fetcher<span></h1>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+            <div class='col-md-6'>
+                <form class="repo-fetcher form-group content-main">
 
-			  <br/>
-			  <button type="submit" class='btn btn-default'>Fetch User's Repos</button>
-			</form>
+                    <h4>Enter a GitHub username to fetch</h4>
+                    <input type="text" name="username" class="form-control md-col-6" />
 
-		</div>
-	</div>
+                    <br/>
+                    <button type="submit" class='btn btn-default'>Fetch User's Repos</button>
+                </form>
 
-	
-	<table id='entryTable' class="top-repos table table-striped">
-		<thead>
-			<tr>
-				<th> Username </th>
-				<th> Repo Name</th>
-				<th> Stargazer Count</th>
-			</tr>
-		</thead>
-		<tbody>
+            </div>
+        </div>
 
-		</tbody>
-	</table>
-	
-</div>
 
-<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
-<script src='app.js'></script>
+        <table id='entryTable' class="top-repos table table-striped">
+            <thead>
+                <tr>
+                    <th> Username </th>
+                    <th> Repo Name</th>
+                    <th> Stargazer Count</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+    <script src='app.js'></script>
 </body>
+
 </html>

@@ -1,5 +1,4 @@
 $( document ).ready(function() {
-	var accessToken = '53613d38ece31b0802994eae2a2096690206a5c3';
     $('.repo-fetcher').submit(function(event){
     	event.preventDefault();
     	var $username = $('input').val();
@@ -11,7 +10,7 @@ $( document ).ready(function() {
        $.ajax({
        	 type:'GET',
          //url: "https://api.github.com/users/" + $username +'/repos',
-         url: `https://api.github.com/users/${$username}/repos?access_token=53613d38ece31b0802994eae2a2096690206a5c3`,
+         url: `https://api.github.com/users/${$username}/repos`,
          dataType : "jsonp",
          'content-type':'appliation/json',
          complete: function(resp) {
@@ -53,9 +52,6 @@ $( document ).ready(function() {
      	$.ajax({
  		  type:'GET',
        	  url: '/repos',
-       	  //data: JSON.stringify(userData),
-       	  //dataType : "json",
-       	  //contentType:'application/json',
        	  complete: function(resp) {
        	  	console.log('in getTop25~~~~~~~~~~~~5', resp);
        	  	showTop25(resp.responseJSON);
