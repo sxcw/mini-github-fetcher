@@ -14,7 +14,18 @@
 	  <button type="submit" class='btn btn-default'>Fetch User's Repos</button>
 	</form>
 
-	<table id='entryTable' class="top-repos table table-striped"></table>
+	<table id='entryTable' class="top-repos table table-striped">
+		<thead>
+			<tr>
+				<th> Username </th>
+				<th> Repo Name</th>
+				<th> Stargazer Count</th>
+			</tr>
+		</thead>
+		<tbody>
+
+		</tbody>
+	</table>
 </div>
 
 <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
@@ -94,13 +105,14 @@ $( document ).ready(function() {
  	}
 
  	function showTop25(arr){
+ 		console.log(arr);
  		arr.forEach(function(repo){
- 			var $entry = $('<div></div>')
- 			var $entryUsername = $('<span></span>').text(repo.username + '  : ').appendTo($entry);
- 			var $entryRepoName = $('<span></span>').text(repo.name + ' : ').appendTo($entry);
- 			var $entryStargazers = $('<span></span>').text(repo.stargazers).appendTo($entry);
+ 			var $entry = $('<tr></tr>')
+ 			var $entryUsername = $('<td></td>').text(repo.username).appendTo($entry);
+ 			var $entryRepoName = $('<td></td>').text(repo.name).appendTo($entry);
+ 			var $entryStargazers = $('<td></td>').text(repo.stargazers).appendTo($entry);
 
- 			$entry.appendTo('#entryTable');
+ 			$entry.appendTo('tbody');
  		})
  	}
  	
