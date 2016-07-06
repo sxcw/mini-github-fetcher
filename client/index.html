@@ -105,11 +105,21 @@ $( document ).ready(function() {
  	}
 
  	function showTop25(arr){
- 		console.log(arr);
+ 		//console.log(arr);
  		arr.forEach(function(repo){
  			var $entry = $('<tr></tr>')
  			var $entryUsername = $('<td></td>').text(repo.username).appendTo($entry);
- 			var $entryRepoName = $('<td></td>').text(repo.name).appendTo($entry);
+ 			//var $entryRepoName = $('<td></td>').wrap(`<a href=http://www.github.com/${repo.username}/${repo.name} target= _blank />`).text(repo.name).appendTo($entry);
+ 			// var $entryRepoName = $('<td></td>').wrap(function(){
+ 			// 	var link = $('<a/>');
+ 			// 	link.attr('href', `http://github.com/${repo.username}/${repo.name}`)
+ 			// 	link.text($(this).text(repo.name));
+ 			// 	return link;
+ 			// })
+ 			var $link = $(`<a href=http://www.github.com/${repo.username}/${repo.name} target= _blank /></a>`).append('<span class="play"></span>').text(repo.name);
+ 			var $entryRepoName = $('<td></td>').append($link)
+
+ 			$entryRepoName.appendTo($entry);
  			var $entryStargazers = $('<td></td>').text(repo.stargazers).appendTo($entry);
 
  			$entry.appendTo('tbody');
