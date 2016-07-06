@@ -33,16 +33,21 @@ app.post('/repos/import', function (req, res) {
 
 
 app.get('/repos', function (req, res) {
-  // TODO
-  // $.ajax({
-  //     url: "https://api.github.com/repos/VonC/gitolite/git/refs/tags",
-  //     dataType: "json",
-  //     success: function (returndata)
-  //     {
-  //         $("#result").html(returndata[0]["object"]["sha"]);
-  //         alert('Load was performed.');
-  //     }  
-  // });
+  console.log('req.body in APP.GET~~~~~~~~~~' , req.body)
+  knex('repos').select().orderBy('stargazers','desc').limit(25)
+  .then((rows)=> res.send(rows));
+  
+  //console.log('res~~~~~~~~~~',res)
+
+  // req.body.forEach(function(repo){
+  // 	knex('repos').insert({
+  // 		id: repo.id,
+  // 		name: repo.name,
+  // 		username: repo.username,
+  // 		stargazers: repo.stargazers
+  // 	})
+  // 	.then(console.log('added to database!'))
+  // })
 });
 
 
