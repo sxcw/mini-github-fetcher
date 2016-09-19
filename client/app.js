@@ -9,7 +9,6 @@ $( document ).ready(function() {
     function requestJSON($username) {
        $.ajax({
        	 type:'GET',
-         //url: "https://api.github.com/users/" + $username +'/repos',
          url: `https://api.github.com/users/${$username}/repos`,
          dataType : "jsonp",
          'content-type':'appliation/json',
@@ -21,18 +20,15 @@ $( document ).ready(function() {
      }
 
      function passDataToExpress(userData){
-     	console.log('in A~~~~~~~userData', userData)
      	userData = userData.map(function(item){
      		console.log(item.id);
      		return {
-
      			id: item.id,
      			name: item.name,
      			username: item.owner.login,
      			stargazers: item.stargazers_count
      		}
      	})
-     	console.log('my userData~~~~~~~~2', userData);
      	$.ajax({
      	  type:'POST',
      	  url: '/repos/import',
@@ -40,10 +36,10 @@ $( document ).ready(function() {
      	  dataType : "json",
      	  contentType:'application/json',
      	  success: function(resp) {
-     	  	console.log('in passDataToExpress~~~~~~~~~~~~3', resp);
+     	  	console.log(resp);
      	  },
      	  error: function(err) {
-     	  	console.error('error in passDataToExpress~~~~~~~~~4', err);
+     	  	console.error(err);
      	  }
      	});
      }
@@ -53,14 +49,12 @@ $( document ).ready(function() {
  		  type:'GET',
        	  url: '/repos',
        	  complete: function(resp) {
-       	  	console.log('in getTop25~~~~~~~~~~~~5', resp);
        	  	showTop25(resp.responseJSON);
        	  }
      })
  	}
 
  	function showTop25(arr){
-
  		arr.forEach(function(repo){
  			var $entry = $('<tr></tr>')
  			var $entryUsername = $('<td></td>').addClass('highlight').text(repo.username).appendTo($entry);
