@@ -16,7 +16,6 @@ var knex = require('knex')({
 
 
 app.post('/repos/import', function (req, res) {
-  console.log('req.body~~~~~~~~~~' , req.body)
   req.body.forEach(function(repo){
   	knex('repos').insert({
   		id: repo.id,
@@ -26,12 +25,10 @@ app.post('/repos/import', function (req, res) {
   	})
   	.then(console.log('added to database!'))
   })
-
 });
 
 
 app.get('/repos', function (req, res) {
-  console.log('req.body in APP.GET~~~~~~~~~~' , req.body)
   knex('repos').select().orderBy('stargazers','desc').limit(25)
   .then((rows)=> {
   	res.send(rows)});
